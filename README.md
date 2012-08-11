@@ -1,5 +1,4 @@
 <img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Ron_Jeremy_2009.jpg/220px-Ron_Jeremy_2009.jpg" width="220" height="329" />
-
 # Ron Jeremybot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
@@ -8,159 +7,130 @@ This version is designed to be deployed on [Heroku][heroku].
 
 [heroku]: http://www.heroku.com
 
-## Playing with Hubot
+# hubot-hipchat
 
-You'll need to install the necessary dependencies for hubot. All of
-those dependencies are provided by [npm][npmjs].
+## Quickstart: Hubot for HipChat on Heroku
 
-[npmjs]: http://npmjs.org
+This is a HipChat-specific version of the more general [instructions in the Hubot wiki](https://github.com/github/hubot/wiki/Deploying-Hubot-onto-Heroku).
 
-## HTTP Listener
+1. Create a [new HipChat account](https://www.hipchat.com/help/page/how-do-i-invite-other-users/) for your bot to use. Stay signed in to the account - we'll need to access its account settings later. We'll assume the bot's name is "Hubot Botson" in these instructions.
+1. Download the latest Hubot archive from https://github.com/github/hubot/downloads
+1. Extract it
+1. Edit `hubot/packages.json` and add `hubot-hipchat` to the `dependencies` section. It should look something like this:
 
-Hubot has a HTTP listener which listens on the port specified by the `PORT`
-environment variable.
+        "dependencies": {
+          "hubot-hipchat": ">= 1.0.9",
+          "hubot": ">= 2.3.0",
+          ...
+        }
 
-You can specify routes to listen on in your scripts by using the `router`
-property on `robot`.
+1. Edit `Procfile` and change it to use the `hipchat` adapter. If your bot's first name is not "Hubot" you'll want to edit the name here as well:
 
-```coffeescript
-module.exports = (robot) ->
-  robot.router.get "/hubot/version", (req, res) ->
-    res.end robot.version
-```
+        app: bin/hubot -a hipchat -n Hubot
 
-There are functions for GET, POST, PUT and DELETE, which all take a route and
-callback function that accepts a request and a response.
+1. Turn your `hubot` directory into a git repository:
 
-### Redis
+        % cd hubot/
+        % git init
+        % git add .
+        % git commit -m "Initial commit"
 
-If you are going to use the `redis-brain.coffee` script from `hubot-scripts`
-you will need to add the Redis to Go addon on Heroku which requires a verified
-account or you can create an account at [Redis to Go][redistogo] and manually
-set the `REDISTOGO_URL` variable.
+1. Install the [Heroku command line tools](http://devcenter.heroku.com/articles/heroku-command) if you don't have them installed yet.
+1. Create a new Heroku application and (optionally) rename it:
 
-    % heroku config:add REDISTOGO_URL="..."
+        % heroku create --stack cedar
+        % heroku rename our-company-hubot
 
-If you don't require any persistence feel free to remove the
-`redis-brain.coffee` from `hubot-scripts.json` and you don't need to worry
-about redis at all.
+1. Note: If you're going to include the redis-brain.coffee plugin you'll need to add [Redis To Go](http://devcenter.heroku.com/articles/redistogo).
 
-[redistogo]: https://redistogo.com/
+        % heroku addons:add redistogo
 
-### Testing Hubot Locally
+1. Configure it:
 
-You can test your hubot by running the following.
+      You will need to set a configuration variable if you are hosting on the free Heroku plan.
 
-    % bin/hubot
+        % heroku config:add HEROKU_URL=http://soothing-mists-4567.herokuapp.com
 
-You'll see some start up output about where your scripts come from and a
-prompt.
+      Where the URL is your Heroku app's URL.
 
-    [Sun, 04 Dec 2011 18:41:11 GMT] INFO Loading adapter shell
-    [Sun, 04 Dec 2011 18:41:11 GMT] INFO Loading scripts from /home/tomb/Development/hubot/scripts
-    [Sun, 04 Dec 2011 18:41:11 GMT] INFO Loading scripts from /home/tomb/Development/hubot/src/scripts
-    Hubot>
+      Set the JID to the "Jabber ID" shown on your bot's [XMPP/Jabber account settings](https://www.hipchat.com/account/xmpp):
 
-Then you can interact with hubot by typing `hubot help`.
+        % heroku config:add HUBOT_HIPCHAT_JID="..."
 
-    Hubot> hubot help
+      Set the name to match the "Room nickname" value on the same page:
 
-    Hubot> animate me <query> - The same thing as `image me`, except adds a few
-    convert me <expression> to <units> - Convert expression to given units.
-    help - Displays all of the help commands that Hubot knows about.
-    ...
+        % heroku config:add HUBOT_HIPCHAT_NAME="..."
 
-Take a look at the scripts in the `./scripts` folder for examples.
-Delete any scripts you think are silly.  Add whatever functionality you
-want hubot to have.
+      Set the password to the password chosen when you created the bot's account.
 
-## Adapters
+        % heroku config:add HUBOT_HIPCHAT_PASSWORD="..."
 
-Adapters are the interface to the service you want your hubot to run on. This
-can be something like Campfire or IRC. There are a number of third party
-adapters that the community have contributed. Check the
-[hubot wiki][hubot-wiki] for the available ones.
+1. Deploy and start the bot:
 
-If you would like to run a non-Campfire or shell adapter you will need to add
-the adapter package as a dependency to the `package.json` file in the
-`dependencies` section.
+        % git push heroku master
+        % heroku ps:scale app=1
 
-Once you've added the dependency and run `npm install` to install it you can
-then run hubot with the adapter.
+      This will tell Heroku to run 1 of the `app` process type which is described in the `Procfile`.
 
-    % bin/hubot -a <adapter>
+      If you're running an adapter that changes the `app` to `web` you need need to run the following instead of the above command.
 
-Where `<adapter>` is the name of your adapter without the `hubot-` prefix.
+        % heroku ps:scale web=1
 
-[hubot-wiki]: https://github.com/github/hubot/wiki
 
-## hubot-scripts
+1. You should see the bot join all rooms it has access to. If not, check the output of `heroku logs`. You can also use `heroku config` to check the config vars and `heroku restart` to restart the bot. `heroku ps` will show you its current process state.
 
-There will inevitably be functionality that everyone will want. Instead
-of adding it to hubot itself, you can submit pull requests to
-[hubot-scripts][hubot-scripts].
+1. Assuming your bot's name is "Hubot", the bot will respond to commands like "@hubot help". It will also respond in 1-1 chat.
 
-To enable scripts from the hubot-scripts package, add the script name with
-extension as a double quoted string to the hubot-scripts.json file in this
-repo.
+1. To configure the commands the bot responds to, you'll need to edit the `hubot-scripts.json` file ([valid script names here](https://github.com/github/hubot-scripts/tree/master/src/scripts)) or add scripts to the `scripts/` directory.
 
-[hubot-scripts]: https://github.com/github/hubot-scripts
+1. To deploy an updated version of the bot, simply commit your changes and run `git push heroku master` again.
 
-## Deployment
+Bonus: Add a notification hook to Heroku so a notification is sent to a room whenever the bot is updated: https://www.hipchat.com/help/page/heroku-integration
 
-    % heroku create --stack cedar
-    % git push heroku master
-    % heroku ps:scale app=1
+## Adapter configuration
 
-If your Heroku account has been verified you can run the following to enable
-and add the Redis to Go addon to your app.
+This adapter uses the following environment variables:
 
-    % heroku addons:add redistogo:nano
+### HUBOT\_HIPCHAT\_JID
 
-If you run into any problems, checkout Heroku's [docs][heroku-node-docs].
+This is your bot's Jabber ID which can be found in your [XMPP/Jabber account settings](https://www.hipchat.com/account/xmpp). It will look something like `123_456@chat.hipchat.com`
 
-You'll need to edit the `Procfile` to set the name of your hubot.
+### HUBOT\_HIPCHAT\_NAME
 
-More detailed documentation can be found on the
-[deploying hubot onto Heroku][deploy-heroku] wiki page.
+This is the full name exactly as you see it on the HipChat account for your bot. For example, "Hubot Botson". It must match the name set on the HipChat account or it will be unable to join rooms.
 
-### Deploying to UNIX or Windows
+### HUBOT\_HIPCHAT\_PASSWORD
 
-If you would like to deploy to either a UNIX operating system or Windows.
-Please check out the [deploying hubot onto UNIX][deploy-unix] and
-[deploying hubot onto Windows][deploy-windows] wiki pages.
+This is the password for your bot's HipChat account.
 
-[heroku-node-docs]: http://devcenter.heroku.com/articles/node-js
-[deploy-heroku]: https://github.com/github/hubot/wiki/Deploying-Hubot-onto-Heroku
-[deploy-unix]: https://github.com/github/hubot/wiki/Deploying-Hubot-onto-UNIX
-[deploy-windows]: https://github.com/github/hubot/wiki/Deploying-Hubot-onto-Windows
+### HUBOT\_HIPCHAT\_ROOMS
 
-## Campfire Variables
+Optional. This is a comma separated list of room JIDs that you want your bot to join. You can leave this blank or set it to "@All" to have your bot join every room. Room JIDs look like "123_development@conf.hipchat.com" and can be found in the [XMPP/Jabber account settings](https://www.hipchat.com/account/xmpp) - just add "@conf.hipchat.com" to the end of the room's "XMPP/Jabber Name".
 
-If you are using the Campfire adapter you will need to set some environment
-variables. Refer to the documentation for other adapters and the configuraiton
-of those, links to the adapters can be found on the [hubot wiki][hubot-wiki].
+### HUBOT\_HIPCHAT\_DEBUG
 
-Create a separate Campfire user for your bot and get their token from the web
-UI.
+Optional. Set to true to enable some additional debug logging.
 
-    % heroku config:add HUBOT_CAMPFIRE_TOKEN="..."
+### HUBOT\_HIPCHAT\_HOST
 
-Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
-and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
+Optional. Use to force the host to open the XMPP connection to.
 
-    % heroku config:add HUBOT_CAMPFIRE_ROOMS="42,1024"
+## Running locally
 
-Add the subdomain hubot should connect to. If you web URL looks like
-`http://mysubdomain.campfirenow.com` then you'd add it like this:
+To run locally on OSX or Linux you'll need to set the required environment variables and run the `bin/hubot` script. An example script to run the bot might look like:
 
-    % heroku config:add HUBOT_CAMPFIRE_ACCOUNT="mysubdomain"
+    #!/bin/bash
+    
+    export HUBOT_HIPCHAT_JID="..."
+    export HUBOT_HIPCHAT_NAME="..."
+    export HUBOT_HIPCHAT_PASSWORD="..."
+    
+    ~/hubot/bin/hubot -a hipchat -n Hubot
 
-[hubot-wiki]: https://github.com/github/hubot/wiki
+### OSX note
 
-## Restart the bot
+This adapter requires `node-stringprep` which in turn, requires `icu-config` to be available in the path. You'll need to install `icu4c`, which, conveniently, homebrew can take care of for you:
 
-You may want to get comfortable with `heroku logs` and `heroku restart`
-if you're having issues.
+    % brew install icu4c
 
+But `brew` will not link any of the utilities, you'll have to do that by hand (in particular `icu-config` which is needed for `node-stringprep` to build correctly (it'll just appear like a broken package otherwise which will be really disturbing)). You can link it with brew using `brew link icu4c`.
