@@ -12,12 +12,12 @@
 #   Ross Ingram
 
 module.exports = (robot) ->
-  robot.respond /booth me/i, (msg) ->
-      booth me msg
+  robot.respond /booth /i, (msg) ->
+      booth msg
 
         robot.hear /i( am|'m) emo/i, (msg) ->
             msg.send "Let me cheer you up."
-                aww msg
+                booth msg
 
                 aww = (msg) ->
                   msg
