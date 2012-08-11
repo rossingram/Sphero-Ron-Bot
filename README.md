@@ -1,3 +1,5 @@
+!(upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Ron_Jeremy_2009.jpg/220px-Ron_Jeremy_2009.jpg)
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
