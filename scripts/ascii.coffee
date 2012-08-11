@@ -6,7 +6,6 @@
 #
 # Configuration:
 #   None
-#
 # Commands:
 #   hubot ascii me <text> - Show text in ascii art
 #

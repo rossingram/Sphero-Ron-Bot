@@ -6,7 +6,6 @@
 #
 # Configuration:
 #   None
-#
 # Commands:
 #   aww - Display the picture from /r/aww
 #

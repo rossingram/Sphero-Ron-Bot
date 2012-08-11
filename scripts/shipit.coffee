@@ -9,7 +9,6 @@
 #
 # Commands:
 #   ship it - Display a motivation squirrel
-#
 # Author:
 #   maddox
 

@@ -9,7 +9,6 @@
 #
 # Commands:
 #   illogical - Display an example of illogicality
-#
 # Author:
 #   arbales
 

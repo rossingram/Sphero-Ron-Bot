@@ -6,7 +6,6 @@
 #
 # Configuration:
 #   None
-# 
 # Commands:
 #   hubot kitten me - A randomly selected kitten
 #   hubot kitten me <w>x<h> - A kitten of the given size

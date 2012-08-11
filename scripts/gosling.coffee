@@ -10,7 +10,6 @@
 # Commands:
 #   hubot gos(ling)? me - Receive a programmer Ryan Gosling meme
 #   hubot gos(ling)? bomb N - Receive N programmer Ryan Gosling memes
-#
 # Author:
 #   jessedearing
 

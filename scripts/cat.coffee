@@ -9,7 +9,6 @@
 #
 # Commands:
 #   None
-#
 # Notes:
 #   $ echo "#channel|hello everyone" | nc -u -w1 bot_hostname bot_port
 #   $ echo "nickname|hello mister" | nc -u -w1 bot_hostname bot_port

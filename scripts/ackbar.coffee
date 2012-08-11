@@ -6,7 +6,6 @@
 #
 # Configuration:
 #   None
-#
 # Commands:
 #   trap - Display an Admiral Ackbar piece of wonder
 #

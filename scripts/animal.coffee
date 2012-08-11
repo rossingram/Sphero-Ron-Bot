@@ -7,7 +7,6 @@
 #
 # Configuration:
 #   None
-#
 # Commands:
 #   hubot animal me - Grab a random gif from http://animalsbeingdicks.com/
 #

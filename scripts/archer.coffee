@@ -6,7 +6,6 @@
 #
 # Configuration:
 #   None
-#
 # Commands:
 #
 # Author:

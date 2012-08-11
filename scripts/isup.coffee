@@ -9,7 +9,6 @@
 #
 # Commands:
 #   hubot is <domain> up? - Checks if <domain> is up
-#
 # Author:
 #   jmhobbs
 
