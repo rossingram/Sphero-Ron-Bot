@@ -10,22 +10,6 @@
 #   Booth me
 # Author:
 #   Ross Ingram
-
 module.exports = (robot) ->
-  robot.respond /booth /i, (msg) ->
-      booth msg
-
-        robot.hear /i( am|'m) emo/i, (msg) ->
-            msg.send "Let me cheer you up."
-                booth msg
-
-                aww = (msg) ->
-                  msg
-                      .http('http://imgur.com/r/aww.json')
-                            .get() (err, res, body) ->
-                                    images = JSON.parse(body)
-                                            images = images.gallery
-                                                    image  = msg.random images
-                                                            msg.send "http://i.imgur.com/#{image.hash}#{image.ext}"
-
-
+  robot.hear /booth/i, (msg) ->
+    msg.send "http://qph.cf.quoracdn.net/main-thumb-1405551-200-5q6xEuGQdtt54355Qm3byMKOTV9bxqqA.jpeg"
