@@ -14,9 +14,9 @@
 #   vquaiato
 
 quotes = [
-  "Agree with you, the council does. Your apprentice, Skywalker will be.",
-  "Agree with you, the council does. Your apprentice, Skywalker will be.",
-  "Agree with you, the council does. Your apprentice, Skywalker will be."
+  "auote 1.",
+  "quote two",
+  "Quote 3"
   
 ]
 
