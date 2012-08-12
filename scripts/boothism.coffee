@@ -13,7 +13,7 @@
 #   Ross Ingram
 
 module.exports = (robot) ->
-    robot.hear /ask booth/i, (msg) ->
+    robot.hear /ask b6n/i, (msg) ->
         quotes = [
         "quote two", 
         "quote one"]
