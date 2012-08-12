@@ -15,6 +15,6 @@
 module.exports = (robot) ->
     robot.hear /ask booth/i, (msg) ->
         quotes = [
-        "reading is fundamental", 
-        "scrappy Doo: To hack something together with minimal time and effort."]
-msg.send msg.random quotes
+        "quote two", 
+        "quote one"]
+        msg.send msg.random quotes
