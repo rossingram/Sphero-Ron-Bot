@@ -7,13 +7,15 @@
 #   None
 #
 # Commands:
-#   Booth me
+#   Ask Booth
+#
 # Author:
 #   Ross Ingram
 
 module.exports = (robot) ->
-    robot.hear /booth/i, (msg) ->
-        quotes = ["reading is fundamental", 
+    robot.hear /ask booth/i, (msg) ->
+        quotes = [
+        "reading is fundamental", 
         "Scrappy Doo: To hack something together with minimal time and effort.", 
         "Cat Daddy: A professional beyond all words and dimensions. Someone obviously above the law in all aspects.", 
         "Net it the fuck out: I need you to give me the bottom line now."]
