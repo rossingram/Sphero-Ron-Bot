@@ -14,8 +14,9 @@
 #   vquaiato
 
 quotes = [
-"Scrappy Doo: To hack something together with minimal time and effort.",
-"Net it the fuck out: I need you to give me the bottom line now.",
+  "Agree with you, the council does. Your apprentice, Skywalker will be.",
+  "Agree with you, the council does. Your apprentice, Skywalker will be.",
+  "Agree with you, the council does. Your apprentice, Skywalker will be."
 ]
 
 module.exports = (robot) ->
