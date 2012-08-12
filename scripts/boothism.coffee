@@ -20,5 +20,5 @@ quotes = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /.*(yoda quote).*/i, (msg) ->
+  robot.hear /.*(booth quote).*/i, (msg) ->
     msg.send msg.random quotes
