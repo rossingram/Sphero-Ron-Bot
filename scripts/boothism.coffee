@@ -14,7 +14,6 @@
 
 module.exports = (robot) ->
     robot.hear /ask b6n/i, (msg) ->
-        quotes = [
-        "quote two", 
+        quotes = ["quote two", 
         "quote one"]
         msg.send msg.random quotes
