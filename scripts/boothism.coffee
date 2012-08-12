@@ -11,7 +11,7 @@
 # Author:
 #   Ross Ingram
 module.exports = (robot) ->
-    robot.hear /ask b6n/i, (msg) ->
+    robot.hear /ask Jim Booth/i, (msg) ->
         quotes = ["reading is fundamental",
         "apparently it?s a bad idea to run a large database on a handful of puny rackspace cloud instances.\nwho knew?",
         "totally resharded",
