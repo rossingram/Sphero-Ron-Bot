@@ -5,8 +5,8 @@
 #   None
 #
 # Configuration:
-#   HUBOT_MEMEGEN_ronjeremybot
-#   HUBOT_MEMEGEN_accessdenied
+#   HUBOT_MEMEGEN_USERNAME
+#   HUBOT_MEMEGEN_PASSWORD
 #   HUBOT_MEMEGEN_DIMENSIONS
 #
 # Commands:
@@ -97,8 +97,8 @@ module.exports = (robot) ->
       msg.send url
 
 memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
-  username = process.env.HUBOT_MEMEGEN_USERNAME
-  password = process.env.HUBOT_MEMEGEN_PASSWORD
+  username = process.env.rossingram
+  password = process.env.accessdenied
   preferredDimensions = process.env.HUBOT_MEMEGEN_DIMENSIONS
 
   unless username? and password?
