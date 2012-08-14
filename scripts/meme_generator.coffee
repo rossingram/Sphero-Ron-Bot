@@ -5,8 +5,8 @@
 #   None
 #
 # Configuration:
-#   HUBOT_MEMEGEN_USERNAME
-#   HUBOT_MEMEGEN_PASSWORD
+#   ronjeremybot
+#   accessdenied
 #   HUBOT_MEMEGEN_DIMENSIONS
 #
 # Commands:
