@@ -97,7 +97,7 @@ module.exports = (robot) ->
       msg.send url
 
 memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
-  rossingram = process.env.HUBOT_MEMEGEN_USERNAME
+  ronjeremybot = process.env.HUBOT_MEMEGEN_USERNAME
   accessdenied = process.env.HUBOT_MEMEGEN_PASSWORD
   preferredDimensions = process.env.HUBOT_MEMEGEN_DIMENSIONS
 
