@@ -20,3 +20,5 @@ module.exports = (robot) ->
   		try
   			json = JSON.parse(body)
     msg.send " version: #{json.version}\n"
+  catch error
+  	msg.send "Not found"
