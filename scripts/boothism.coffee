@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   booth - Returns a random Jim Booth quote
+#   booth - Returns a random Jim Booth quote in the format: 'Something he says' - Translation
 #
 # Author:
 #   rossingram
