@@ -55,8 +55,5 @@ quotes = [
 	"Crawling in my ear - As in ?getting on my case?", 
 	"Spiff Up A Turd - When someone tries to dress up something that sucks.",
 	"We rented the room and no-one showed up to the party - You paid for a service but didn't see the return.",
-	"We need to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away - Used to reference how to prioritize tasks.  Example: I need to remind Paul that we have to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away when it comes to accessories, right?,
-	"Give A Shit Factor - When you want a company or person to actually care about something. ?We need a PR company that has a give a shit factor with Sphero.?",
-
-
-]
+	"We need to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away - Used to reference how to prioritize tasks.  Example: I need to remind Paul that we have to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away when it comes to accessories, right?"
+	]
