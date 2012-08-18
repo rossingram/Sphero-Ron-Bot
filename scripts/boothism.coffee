@@ -51,5 +51,6 @@ quotes = [
 	"(jb) Booth Says: 'Crawling in my ear' - As in getting on my case.", 
 	"(jb) Booth Says: 'Spiff Up A Turd' - When someone tries to dress up something that sucks.",
 	"(jb) Booth Says: 'We rented the room and no-one showed up to the party' - You paid for a service but didn't see the return.",
-	"(jb) Booth Says: 'We need to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away' - Used to reference how to prioritize tasks."
+	"(jb) Booth Says: 'We need to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away' - Used to reference how to prioritize tasks.",
+	"(jb) Booth Says: 'Midnight Jizzums'"
 	]
