@@ -9,8 +9,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
-          msg.send "
-     owners: #{json.version}\n
-       info: #{json.date}\n"
-            catch error
+          msg.send "   gem version: #{json.version}\n
+       date: #{json.date}\n"
+        catch error
           msg.send "Gem not found. It will be mine. Oh yes. It will be mine. *sinister laugh*"
