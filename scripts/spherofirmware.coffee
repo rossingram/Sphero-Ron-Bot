@@ -1,24 +1,19 @@
-# Description:
-#   None
+# Whois for gems, because gem names are like domains in the 90's
 #
-# Dependencies:
-#   None
+# gem whois <gemname> - returns gem details if it exists
 #
-# Configuration:
-#   None
-#
-# Commands:
-#   (robot) firmware? - Returns current firmware version and release notes.
-#
-# Author:
-#   rossingram
 
 module.exports = (robot) ->
-  robot.respond /firmware/i, (msg) ->
-  msg.http("http://update.orbotix.com/sphero/master.json")
-  	.get() (err, res, body) ->
-  		try
-  			json = JSON.parse(body)
-    msg.send " version: #{json.version}\n"
-  catch error
-  	msg.send "Not found"
+  robot.respond /gem whois (.*)/i, (msg) ->
+    gemname = escape(msg.match[1])
+    msg.http("http://rubygems.org/api/v1/gems/#{gemname}.json")
+      .get() (err, res, body) ->
+        try
+          json = JSON.parse(body)
+          msg.send "   gem name: #{json.name}\n
+     owners: #{json.authors}\n
+       info: #{json.info}\n
+    version: #{json.version}\n
+  downloads: #{json.downloads}\n"
+        catch error
+          msg.send "Gem not found. It will be mine. Oh yes. It will be mine. *sinister laugh*"
