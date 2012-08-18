@@ -5,14 +5,13 @@
 
 module.exports = (robot) ->
   robot.respond /gem whois/i, (msg) ->
-    msg.http("http://rubygems.org/api/v1/gems/sphero.json")
+    msg.http("http://update.orbotix.com/sphero/master.json")
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
           msg.send "   gem name: #{json.name}\n
-     owners: #{json.authors}\n
-       info: #{json.info}\n
-    version: #{json.version}\n
-  downloads: #{json.downloads}\n"
-        catch error
+     owners: #{json.version}\n
+       info: #{json.date}\n
+    version: #{json.notes}\n"
+            catch error
           msg.send "Gem not found. It will be mine. Oh yes. It will be mine. *sinister laugh*"
