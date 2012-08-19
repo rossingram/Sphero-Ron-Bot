@@ -8,6 +8,6 @@ module.exports = (robot) ->
     msg.http("http://update.orbotix.com/sphero/current/versions.json")
       .get() (err, res, body) ->
         try
-          json = JSON.parse(body)
-          msg.send "   version: #{{json.version}}\n
-       date: #{{json.date}}\n"
+          json = JSON.parse
+          msg.send "   version: #{json.version}\n
+       date: #{json.date}\n"
