@@ -9,5 +9,5 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
-          msg.send "   version: #{version}\n
-       date: #{date}\n"
+          msg.send "   version: #{{json.version}}\n
+       date: #{{json.date}}\n"
