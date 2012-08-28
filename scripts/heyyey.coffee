@@ -8,13 +8,13 @@
 #   None
 #
 # Commands:
-#   hey yea - Returns heyyeyaaeyyea video
+#   hey - Returns heyyeyaaeyyea video
 #
 # Author:
 #   rossingram
 
 module.exports = (robot) ->
-  robot.hear /booth/i, (msg) ->
+  robot.hear /hey/i, (msg) ->
     msg.send video
 
 video = [
