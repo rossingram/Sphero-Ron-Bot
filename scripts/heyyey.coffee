@@ -15,8 +15,5 @@
 
 module.exports = (robot) ->
   robot.hear /hey/i, (msg) ->
-    msg.send video
+    msg.send "http://gifsoup.com/view3/3115666/heyyeyaaeyaaaeyaeyaa-o.gif"
 
-video = [
-'https://www.youtube.com/watch?v=6GggY4TEYbk&feature=fvwrel'
-	]
