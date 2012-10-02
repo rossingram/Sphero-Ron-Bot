@@ -14,7 +14,7 @@
 #   rossingram
 
 module.exports = (robot) ->
-  robot.hear /booth/i, (msg) ->
+  robot.respond /booth/i, (msg) ->
     msg.send msg.random quotes
 
 quotes = [
