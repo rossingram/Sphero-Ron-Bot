@@ -4,5 +4,11 @@
 
 module.exports = (robot) ->
   robot.respond /hi|hello/i, (msg) ->
-      msg.send "fuck you"
+      msg.send msg.randon quotes
+quotes = [      
+      "fuck you"
+      "howdy"
+      "hi ;)"
+      "haaaaay"
+      "ohai" ]
 
