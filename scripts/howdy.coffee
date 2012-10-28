@@ -5,10 +5,11 @@
 module.exports = (robot) ->
   robot.respond /hi|hello/i, (msg) ->
       msg.send msg.randon quotes
+
 quotes = [      
-      "fuck you"
-      "howdy"
-      "hi ;)"
-      "haaaaay"
+      "fuck you",
+      "howdy",
+      "hi ;)",
+      "haaaaay",
       "ohai" ]
 
