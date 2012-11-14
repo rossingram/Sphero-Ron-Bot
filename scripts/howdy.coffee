@@ -8,8 +8,8 @@ module.exports = (robot) ->
 
 quotes = [      
       "fuck you",
-      "howdy",
-      "hi ;)",
+      "howdy Sphero rangers!",
+      "hi girl ;)",
       "haaaaay",
       "ohai" ]
 
