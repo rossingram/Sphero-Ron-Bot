@@ -21,3 +21,7 @@ module.exports = (robot) ->
     robot.hear /you big slut/i, (msg) ->
         msg.send "I know :("
 
+module.exports = (robot) ->
+    robot.hear /go out the back/i, (msg) ->
+        msg.send "@TheMDP MIKE, GO OUT THE BACK. JUST GO OUT THE BACK. GO OUT THE BACK."
+        
