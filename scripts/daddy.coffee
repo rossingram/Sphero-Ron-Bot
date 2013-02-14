@@ -24,4 +24,8 @@ module.exports = (robot) ->
 module.exports = (robot) ->
     robot.hear /go out the back/i, (msg) ->
         msg.send "@TheMDP MIKE, GO OUT THE BACK. JUST GO OUT THE BACK. GO OUT THE BACK."
+
+module.exports = (robot) ->
+    robot.hear /you upgrade to native?/i, (msg) ->
+        msg.send "http://www.picture-indian.com/images/indian-chief.jpg"
         
