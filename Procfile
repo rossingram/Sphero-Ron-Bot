@@ -1,1 +1,1 @@
-app: bin/hubot -a hipchat -n RonJeremybot
+app: bin/hubot -a flowdock -n RonJeremybot
