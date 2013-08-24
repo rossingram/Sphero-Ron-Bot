@@ -7,9 +7,11 @@ This version is designed to be deployed on [Heroku][heroku].
 
 [heroku]: http://www.heroku.com
 
-# hubot-hipchat
+# hubot
 
 ## Quickstart: Hubot for HipChat on Heroku
+
+(Note: This is currently configured to run on FlowDock, see additional instructions [here](https://github.com/flowdock/hubot-flowdock))
 
 This is a HipChat-specific version of the more general [instructions in the Hubot wiki](https://github.com/github/hubot/wiki/Deploying-Hubot-onto-Heroku).
 
