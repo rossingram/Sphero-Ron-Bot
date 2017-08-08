@@ -52,7 +52,8 @@ quotes = [
 	"(jb) Booth Says: 'Spiff Up A Turd' - When someone tries to dress up something that sucks.",
 	"(jb) Booth Says: 'We rented the room and no-one showed up to the party' - You paid for a service but didn't see the return.",
 	"(jb) Booth Says: 'We need to focus on the sniper in the bush 5 ft away, vs. the sniper 20 ft away' - Used to reference how to prioritize tasks.",
-	"(jb) Booth Says: 'Midnight Jizzums'",
+	"(jb) Booth Says: 'Midnight Jizzums' - Describing the weird stain on Jon's desk",
+	"(jb) Booth Says: 'Finding a full stack developer is like finding a Kevin Durant, a tall guy that can move'",
   "(jb) Booth Says: 'Give a shit factor' - When you want a company or person to actually care about something",
   "(jb) Booth Says: 'Shit the bed' - When someone screws something up badly",
   "(jb) Booth Says: 'Whacked on the pee pee' - When you get in trouble for doing something."
